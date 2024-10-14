@@ -77,11 +77,10 @@ You can now view app in the browser.
 
 * ユーザーに招待メールが到着します
 
-![](images/003.png)
+![](images/004.png)
 
 * 招待メールに記載されたパスワードでログインします
 
-![](images/004.png)
 ![](images/005.png)
 
 * ログイン後にパスワードの変更を行います
