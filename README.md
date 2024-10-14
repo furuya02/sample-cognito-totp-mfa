@@ -1,9 +1,9 @@
 # sample-cognito-totp-mfa
 Cognito Time-based One-time Password MFA Sample
 
-## Setup
+## セットアップ
 
-### Download
+### (1) Download
 
 ```
 % git clone https://github.com/furuya02/sample-cognito-totp-mfa.git
@@ -11,7 +11,7 @@ Cognito Time-based One-time Password MFA Sample
 ```
 
 
-### CDK
+### (2) CDK
 
 * CDKでCognitoをセットアップします
 
@@ -29,7 +29,7 @@ CdkStack.CognitoPoolId = ap-northeast-1_xxxxxxxxx
 * Output で出力された CognitoClientId 及び、CognitoPoolIdをコピーしておきます
 
 
-### React
+### (3) React
 
 * sample-cognito-totp-mfa/app/src/aws-exports.jsを、コピーしたIdで編集する
 
@@ -63,7 +63,75 @@ You can now view app in the browser.
 
 ## 使用方法
 
+### (1) ユーザーの作成
 
+* Cognitoのコンソールでユーザープールから「ユーザーを作成」を選択します
 
+![](images/002.png)
 
+* 「Eメールで招待を送信」「パスワードの生成」を選択して、ユーザーを作成します
+
+![](images/003.png)
+
+### (2) ユーザーのログイン（初回）
+
+* ユーザーに招待メールが到着します
+
+![](images/003.png)
+
+* 招待メールに記載されたパスワードでログインします
+
+![](images/004.png)
+![](images/005.png)
+
+* ログイン後にパスワードの変更を行います
+
+![](images/006.png)
+
+* 続いて、メールの検証を行います
+
+![](images/007.png)
+
+![](images/008.png)
+![](images/009.png)
+
+* メールの検証が完了するとログインが完了します
+
+![](images/010.png)
+
+### (3) ユーザーのMFA設定
+
+* 「MFAを設定する」をクリックします
+
+![](images/011.png)
+
+* 仮想MFAデバイスにシークレットを登録します
+
+![](images/012.png)
+
+* 仮想MFAデバイスで生成されたワンタイムパスワードを入力して「保存」をクリックします
+
+![](images/013.png)
+
+* 「現在、MFAは、アクティブになっています」と表示されたら登録完了です
+
+![](images/014.png)
+
+### (4) ユーザーのログイン（MFA設定後）
+
+* いったん「ログアウト」してログインを確認してみます
+
+![](images/015.png)
+
+* メールアドレス及び、パスワードの認証が完了すると、ワンタイムパスワード入力に遷移します
+
+![](images/016.png)
+
+* 仮想MFAで生成されたパスワードを入力します
+
+![](images/017.png)
+
+* ログインに成功すると、「現在、MFAは、アクティブになっています」と表示されている事が確認できます
+
+![](images/018.png)
 
